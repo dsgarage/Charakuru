@@ -1,6 +1,6 @@
 # Tutorial: make your first VRM avatar
 
-[README](../README.md) · [日本語](tutorial.ja.md)
+[README](../README.md) · [日本語](tutorial.ja.md) · [한국어](tutorial.ko.md)
 
 > [!WARNING]
 > **This kit is still in development.**
@@ -9,7 +9,7 @@
 >
 > **These docs were written by AI.**
 >
-> They can be a little hard for people to read. We recommend opening the extracted distribution ZIP folder in a coding agent such as Codex or Claude Code, and learning about the kit by talking with the agent.
+> They can be a little hard for people to read. We recommend opening this repository (or the extracted release folder) in a coding agent such as Codex or Claude Code, and learning about the kit by talking with the agent.
 >
 > For example: "Read README.md and AGENTS.md and tell me what this kit can do."
 
@@ -30,8 +30,8 @@ Each step has two parts:
 3. [Review the 8 images](#3-review-the-8-images)
 4. [Choose the head and body 3D candidates](#4-choose-the-head-and-body-3d-candidates)
 5. [Adjust the proportions](#5-adjust-the-proportions)
-6. [Check the motion](#6-check-the-motion)
-7. [Check the finished VRM](#7-check-the-finished-vrm)
+6. [Review the completed VRM](#6-review-the-completed-vrm)
+7. [Save the VRM](#7-save-the-vrm)
 - [Saving and resuming](#saving-and-resuming) · [Troubleshooting](#troubleshooting)
 
 ---
@@ -43,13 +43,13 @@ Set up the tools listed under [What you need](../README.md#what-you-need) in the
 Two more things make the process smoother:
 
 - **The illustration**: PNG / JPEG / WebP, up to 20 MB. A full-body picture showing hairstyle, outfit and shoes works best. A character sheet with a close-up of the face or a back view is fine too. Use an illustration you are allowed to use.
-- **Information for the VRM**: model name, author name and usage terms (whether others may use it, commercial use, redistribution, modification). The agent asks for these in the last step.
+- **Information for the VRM**: model name, author name and usage terms (whether others may use it, commercial use, redistribution, modification). Enter these in the app when exporting, after motion review.
 
 ## 1. Start the kit
 
 **👤 What you do**
 
-1. Download `charakuru-1.0.2-….zip` from [Releases](https://github.com/nanocle/Charakuru/releases) and extract it to a folder you can write to. Not the "Source code" ZIP.
+1. Download `charakuru-1.1.0-….zip` from [Releases](https://github.com/nanocle/Charakuru/releases) and extract it to a folder you can write to. Not the "Source code" ZIP.
 2. Open the extracted folder in Codex and ask:
    ```text
    Read the root AGENTS.md and help me start creating a character with this kit.
@@ -62,10 +62,10 @@ It reads `AGENTS.md` and checks whether Node.js, image generation, browser contr
 
 <p align="center"><img src="images/en/01-start.jpg" alt="The Image library screen right after starting" width="860"></p>
 
-The menu on the left shows the stages, from top to bottom: **Image library → Model editor → Rigging → Motion preview → Preview → Finishing**. **New / Open / Save** at the top right handle the project.
+The menu on the left shows the stages, from top to bottom: **Image library → Model editor → Rigging → Motion check**. **New / Open / Save** at the top right handle the project.
 
 > [!TIP]
-> To start the app yourself, run `npm start` in the extracted folder. No `npm install` is needed. To switch the UI to Japanese, open **Settings** at the bottom left and press 「日本語」 under **Language**.
+> To start the app yourself, run `npm start` in the extracted folder. No `npm install` is needed. To switch the UI to Japanese, open **Settings** at the bottom left and select 日本語 or 한국어 under **Language**.
 
 ### How to send a request (same for every step)
 
@@ -80,7 +80,7 @@ Every step below uses the same routine.
 <p align="center"><img src="images/en/03-request-images.jpg" alt="The request window" width="860"></p>
 
 > [!NOTE]
-> The request text is written in Japanese even when the UI is in English. Paste it as is; the agent reads it either way, and you can keep chatting in English.
+> The English UI uses Japanese agent instructions. Paste them as is and keep chatting in English. Select 한국어 to use Korean UI and Korean requests.
 
 ## 2. Load the illustration and request 8 images
 
@@ -94,7 +94,7 @@ Every step below uses the same routine.
 
 **🤖 What the agent does**
 
-Based on the illustration, it paints the **head (with hair)** and the **body with the outfit**, each from four views: front, left, right and back. That makes 8 images.
+Based on the illustration, it paints the **head (with hair)** and the **body with the outfit**, each from four views: front, left, right and back. That makes 8 images. The original illustration remains the design source for the part images. After those are finished, the agent creates full-body front, own-right-side and back balance references from the original and finished parts, and adds them to the same project.
 
 - The head is straightened, with a calm, closed-mouth expression.
 - The body is posed in a T-pose with arms out to the sides.
@@ -114,6 +114,8 @@ Based on the illustration, it paints the **head (with hair)** and the **body wit
    - Is any body showing in the head images, or any back hair left in the body images?
 3. To fix a single image, click it to enlarge it and press **Astraに修正を依頼** (request a fix). Copy the request, paste it into the chat, **add what you want changed and where**, then send it.
 4. When all 8 look right, press **Confirm images & continue** and send the request in the chat.
+
+The balance references also appear below the part images. Click to enlarge them and check that the original design and proportions are preserved.
 
 <p align="center"><img src="images/en/05-images-front.jpg" alt="Reviewing the 8 images (front)" width="860"></p>
 
@@ -139,7 +141,7 @@ It operates Tripo in the browser and generates **four 3D candidates each for the
 
 **👤 What you do**
 
-1. The candidates appear in **Model editor**. In the bottom panel, choose **Head** and switch between numbers **1–4** to compare them.
+1. A comparison dialog opens after candidates are generated. Choose **Head** and switch numbers **1–4**. Reopen it with **Choose model candidates** in the model editor. Reference images are hidden during comparison.
 2. Drag to rotate, or use **Front / Right / Left / Back / Top / 3D** at the top to change the view. Turn on **Wireframe** to see how dense the mesh is.
 3. With the best candidate showing, press **Select this candidate**.
 4. Switch to **Body** and choose one the same way.
@@ -159,14 +161,18 @@ It operates Tripo in the browser and generates **four 3D candidates each for the
 > [!NOTE]
 > Viewing a candidate does not select it. Only the one you press **Select this candidate** on is used.
 
+After texturing, choosing a different candidate shows an explanation and a **Copy and select this candidate** button. The original .charakit and working Blend remain intact. Parts, textures, rig and springs are rebuilt in the copy. Use **Open original** in Settings to return to the parent project.
+
 **🤖 What the agent does**
 
 It prepares the chosen head and body for finishing.
 
-- Splits the parts in Tripo and sorts them into face, hair, outfit and so on.
-- Groups the textures into up to seven sets and paints a reference image for each.
+- Splits the parts in Tripo and classifies texture groups and spring groups independently.
+- Uses five texture categories: hair, head, upper body, lower body and other accessories. The lower body includes the waist outfit, skirt or trousers, legs and footwear together. Absent hair or accessories are omitted. Large ribbons may be accessories even when attached to clothing. It paints reference images for these same groups.
 - Unwraps the UVs in Tripo and rebuilds the textures at 4K.
 - Assembles the parts and adds them to the project.
+
+Even when the skirt and legs are separated for spring motion, they share one lower-body reference set and texture, with the outfit kept as designed. No standalone leg or shoe reference is produced. The assembled skirt remains a separate mesh for spring motion.
 
 If some shapes are joined and can't be separated, the agent shows you the spot in an image and asks how to proceed. Answer in the chat.
 
@@ -176,11 +182,13 @@ If some shapes are joined and can't be separated, the agent shows you the spot i
 
 **👤 What you do**
 
-1. In **Model editor**, open the **Position & size** tab.
+1. Open **Model editor** to adjust proportions.
 2. Under **Part to adjust**, choose head, hair or body and use the scale and position sliders. Turn on **Move hair together with the head** to move them together.
 3. Switch between the front and right views to check the neck joint and head size. ↶ ↷ undo and redo.
 4. If needed, enter **Target total height (m)** and press **Apply height** to set the overall size. The 1.7 m shown is an example, not a VRM requirement.
 5. When you're happy, press **Confirm proportions & continue** and send the request in the chat.
+
+Reference views are fitted to model height and feet once during proportion editing. Use **Adjust reference views** to compare images against the translucent model. Scaling keeps the feet fixed; front, side and back share character height and foot level, while horizontal offsets stay independent. Each image has a vertical centerline. The modal ruler follows the image's character bounds, excluding transparent margins, and displays its converted height without changing the model's actual size. Position/size locking applies to all three views. You can add, replace, drag and adjust transparency. The side reference is the character's own right side. **Apply** saves changes; **Cancel** or Esc discards them.
 
 <table>
   <tr>
@@ -198,49 +206,25 @@ If some shapes are joined and can't be separated, the agent shows you the spot i
 - Puts the hair back and sets up physics for hair, skirt, ribbons and other swinging parts.
 - Adds a review model to the project and stops at the motion check.
 
-## 6. Check the motion
+## 6. Review the completed VRM
+
+After rig, weights and springs are set up, the app builds the completed VRM from the saved Blend and automatically checks its structure, MToon, textures and spring response for each part. Appearance is not scored automatically, and an agent's visual approval is not a completion requirement.
 
 **👤 What you do**
 
-1. Open **Motion preview**. The **Walk** motion is selected.
-2. Press **Play** to make the model walk, and **Rest pose** to return to the T-pose. You can also stop at any point of the walk with the slider.
-3. From the front and the side, look at how shoulders, elbows, knees and neck bend, and whether the outfit breaks or clips. If something bothers you, say so in the chat.
-4. When it looks fine, press **Confirm motion & continue** at the bottom right and send the request in the chat.
+1. When work finishes, **Motion preview** automatically shows the checked VRM with physics enabled and **Default (walk)** playing. Model information is not required for review. Loading status and failures appear in the viewer.
+2. Press **Pause** to stop the animation. Grab and drag the model with the mouse to check its hair and outfit springs. Drag the background to move the camera.
+3. Use **Rest pose** to return to the original pose, **Show bones** to inspect the skeleton, and **Reset physics** to reset springs while keeping the model's position and pose.
+4. Choose **Load motion (VRMA)** for another motion. Then switch between the default walk on the left and the loaded motion on the right. Use **Change** to replace the loaded file.
+5. Check the appearance and movement from the front and side. Request specific changes in chat if needed.
 
-<p align="center"><img src="images/en/17-review-walk.jpg" alt="Checking the motion with the walk cycle" width="860"></p>
+The loaded VRMA stays available while the page is open. Reloading returns to the default walk. Poses and model dragging are temporary review controls and do not change the saved VRM.
 
-> [!IMPORTANT]
-> This screen shows how the bones and body move. Hair and outfit physics are checked in the exported VRM.
+## 7. Save the VRM
 
-**🤖 What the agent does**
+Press **Export VRM** and confirm the model name, authors and usage terms. Press **Save information and export** to save the information and download the VRM. Canceling lets you continue motion review. The shape, materials and springs stay as reviewed; only model information is finalized. No request needs to be copied and no agent export pass is needed. The local app also saves `exports/avatar.vrm` and the editable `exports/avatar.blend`.
 
-- Confirms the model name, author and usage terms for the VRM. If you haven't given them yet, it asks now.
-- Exports `exports/avatar.vrm` and the editable `exports/avatar.blend`.
-- Loads the exported VRM again to check that the physics actually move. Anything it couldn't verify is reported as a remaining issue.
-
-<p align="center"><img src="images/en/21-request-finish.jpg" alt="The request for VRM export" width="860"></p>
-
-## 7. Check the finished VRM
-
-**👤 What you do**
-
-1. **Finishing** shows **Finished files**, the `exports` folder that holds `avatar.vrm` and `avatar.blend`.
-2. Open **Preview** and choose `avatar.vrm` with **Load finished VRM**. This turns on the hair and outfit physics.
-3. Choose a motion file (VRMA) with **Load VRMA**, then use **Play / Stop** to watch it move.
-4. Switch between **Toon** and **Original view**, and change the light direction and brightness to see how it looks.
-
-<table>
-  <tr>
-    <td width="50%"><img src="images/en/19-finish.jpg" alt="Finishing and the finished files location"></td>
-    <td width="50%"><img src="images/en/18-preview.jpg" alt="The Preview screen"></td>
-  </tr>
-</table>
-
-<sub>The preview screenshot uses **Show working model**. Loading the finished VRM enables VRMA playback and physics.</sub>
-
-Adjustments in Preview are for viewing only and don't change the VRM. You can keep them separately with **Save settings JSON**. To export the VRM again, use **Export VRM again** on the Finishing screen.
-
-That's your first avatar done.
+Authors and usage conditions are saved with the project and prefilled for future exports. Information changes preserve the displayed model and its physics verification. Changes to the model or spring setup require the updated VRM to pass checks again before it is displayed.
 
 ---
 

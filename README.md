@@ -10,13 +10,14 @@
 
 <p align="center">
   <a href="README.ja.md">日本語</a> ·
+  <a href="README.ko.md">한국어</a> ·
   <a href="docs/tutorial.md"><b>Tutorial</b></a> ·
   <a href="https://github.com/nanocle/Charakuru/releases">Download (Releases)</a> ·
   <a href="docs/license.md">Terms of Use</a>
 </p>
 
 <p align="center">
-  <img alt="version" src="https://img.shields.io/badge/version-1.0.2-22d3ee">
+  <img alt="version" src="https://img.shields.io/badge/version-1.1.0-22d3ee">
   <img alt="Node.js" src="https://img.shields.io/badge/Node.js-22%2B-5fa04e">
   <img alt="output" src="https://img.shields.io/badge/output-VRM%201.0-a78bfa">
   <img alt="license" src="https://img.shields.io/badge/license-source--available-64748b">
@@ -46,14 +47,14 @@ All you need is a single full-body illustration to create a VRM model.
 >
 > **These docs were written by AI.**
 >
-> They can be a little hard for people to read. We recommend opening the extracted distribution ZIP folder in a coding agent such as Codex or Claude Code, and learning about the kit by talking with the agent.
+> They can be a little hard for people to read. We recommend opening this repository (or the extracted release folder) in a coding agent such as Codex or Claude Code, and learning about the kit by talking with the agent.
 >
 > For example: "Read README.md and AGENTS.md and tell me what this kit can do."
 
 <p align="center">
-  <img src="docs/images/en/overview-strip.jpg" alt="From the illustration to 8 images, a 3D model and the preview" width="100%">
+  <img src="docs/images/en/overview-strip.jpg" alt="From the illustration to 8 images, a 3D model and motion review" width="100%">
 </p>
-<p align="center"><sub>Example: 海月 みる (Miru Umitsuki). Left to right: illustration → 8 images painted by the agent → 3D model → in-app preview.</sub></p>
+<p align="center"><sub>Example: 海月 みる (Miru Umitsuki). Left to right: illustration → 8 images painted by the agent → 3D model → in-app motion review.</sub></p>
 
 ---
 
@@ -70,6 +71,8 @@ You go back and forth between **reviewing in the app** and **asking in the chat*
 3. When the agent finishes, the app switches to the new state on its own and stops at the next checkpoint.
 
 There's no exporting, importing or re-saving files by hand. The agent never moves past a checkpoint on its own, and you are the one who picks the candidates.
+
+Compare model candidates in a dialog and reopen it with Choose model candidates in the model editor. The editor focuses on proportions; all three reference views share character height and foot level. Selecting a different candidate after texturing creates a separate project copy and preserves the original. Save the finished VRM at the end of Motion check.
 
 <table>
   <tr>
@@ -110,9 +113,9 @@ Accounts, terms and fees for external services are your own. The agent checks wh
 
 ## Getting started
 
-This repository contains distribution documentation and images. The runnable app and root `AGENTS.md` are included in the dedicated distribution ZIP.
+This repository contains public documentation and images. The working kit, including its root `AGENTS.md`, is distributed in the dedicated release ZIP.
 
-1. Download **`charakuru-1.0.2-….zip`** from [Releases](https://github.com/nanocle/Charakuru/releases) and extract it to any folder you can write to.<br><sub>GitHub's automatic "Source code" archive contains these documents and images, not the runnable kit.</sub>
+1. Download **`charakuru-1.1.0-….zip`** from [Releases](https://github.com/nanocle/Charakuru/releases) and extract it to any folder you can write to.<br><sub>GitHub's automatic "Source code" archive contains only these documents, not the kit.</sub>
 2. Open the extracted folder in Codex and ask:
 
    ```text
@@ -133,20 +136,22 @@ New agent requests use the `begin` command to avoid Codex on Windows mistaking t
 | --- | --- |
 | `AGENTS.md` | The agent's starting point: requirements, stages and saving rules. |
 | `public/`, `server.mjs` | The local review app. |
-| `skills/` | The seven Skills, one per stage. |
+| `skills/` | Nine Skills for the production workflow. |
 | `scripts/` | Scripts the agent uses to update the project. |
 | `assets/donor/weighted-body.blend` | The base body used for weight transfer. |
-| `docs/` | The tutorial, the preview guide and plain-language terms in English and Japanese. |
+| `docs/` | The tutorial, the motion review guide and plain-language terms in English, Japanese and Korean. |
 
 <details>
-<summary>The seven Skills</summary>
+<summary>The nine Skills</summary>
 
 | Skill | Used for |
 | --- | --- |
 | `charakit-project` | Checking, reading and updating the project file |
 | `character-parts-images` | Painting the head (with hair) and body in four views: 8 images |
+| `character-three-views` | Full-body reference views for proportion adjustment |
 | `character-material-brushup` | Finishing the painting and materials without changing the design |
 | `tripo-agent-workflow` | Tripo candidates, part sorting, UV and retexturing, rigging |
+| `tripo-studio-download` | Receiving exported Tripo Studio models and checking the saved files |
 | `avatar-weight-transfer` | Separating swinging parts and transferring weights from the base body |
 | `avatar-spring-setup` | Hair and outfit physics, VRM export and checking |
 | `tripo-character-setup` | Detailed rigging from joint markers you place (only when you choose it) |
@@ -157,9 +162,9 @@ New agent requests use the `begin` command to avoid Codex on Windows mistaking t
 
 - Copying a request does not start the agent. Paste it into the chat and send it, and keep the app open while it works.
 - New characters have a neutral face with a fixed gaze. Expressions and eye movement are not included.
-- The in-app walk check is for bones and skin deformation. Physics is checked in the exported VRM.
-- Toon shading and lighting in the preview are for viewing only and don't change the VRM. To export the VRM again, ask the agent.
-- The UI is in English and Japanese, but the request text you copy to the agent is in Japanese. The agent reads it either way.
+- Motion review automatically shows the checked VRM, even before model information is registered. Walking and physics start enabled. You decide whether the appearance is satisfactory.
+- **Export VRM** opens the model information form. Confirm the name, authors and usage terms, then save the information and download in one step. The model, materials and springs match motion review; the information is saved with the project for future exports. No agent request is needed.
+- The UI supports English, Japanese and Korean. Korean UI requests are written in Korean; the existing English UI requests use Japanese instructions.
 - When moving your work, keep the whole project folder with the finished VRM and Blend files, not just `project.charakit`.
 
 ## Terms of Use
@@ -179,8 +184,6 @@ If your entire business's annual revenue and cumulative funding are **both below
 Assess annual revenue using the **most recently completed fiscal year**. If there is no defined fiscal year, use the preceding twelve months; if no fiscal year has yet ended, use actual revenue since the business began, limited to the preceding twelve months. Do not annualize revenue for a business operating for less than twelve months or for a short initial fiscal year. Reassess cumulative funding when funds are received, regardless of the fiscal year. See [Terms of Use explained](docs/license.md) for calculation details and agreement timing.
 
 Read the formal license [here](LICENSE).
-
-See also [third-party notices](THIRD_PARTY_NOTICES.md).
 
 ## Reporting issues
 

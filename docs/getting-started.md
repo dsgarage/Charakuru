@@ -1,12 +1,12 @@
 # Getting started with Charakuru
 
-[日本語](getting-started.ja.md) · [Overview](../README.md)
+[日本語](getting-started.ja.md) · [한국어](tutorial.ko.md) · [Overview](../README.md)
 
 ## Prepare the kit
 
 Use the dedicated distribution ZIP from [Releases](https://github.com/nanocle/Charakuru/releases), rather than GitHub's automatically generated Source code archive. Extract it into any writable folder and keep its files together.
 
-Prepare Node.js 22 or later and a desktop Chromium-based browser. Open the extracted folder in Codex and ask it to read the root `AGENTS.md` and help you start. That file contains setup guidance for the whole kit; seven Skills handle the individual production stages.
+Prepare Node.js 22 or later and a desktop Chromium-based browser. Open the extracted folder in Codex and ask it to read the root `AGENTS.md` and help you start. That file contains setup guidance for the whole kit; nine Skills handle the production workflow.
 
 The agent starts the local app. You can also run `npm start` in the extracted folder and open the displayed local URL. Normal startup does not require `npm install`.
 
@@ -18,7 +18,7 @@ Import your illustration, review the eight images, choose head and body candidat
 
 The app saves the canonical `.charakit`; restarting from the same extracted folder reopens the last saved state. The top-right Save button remains available. Keep necessary Blend, VRM and other project outputs when moving the production folder.
 
-For screen-by-screen instructions, see the [screenshot tutorial](tutorial.md). Consult the kit's preview guide for viewing a VRM, toon adjustments, VRMA playback and springs. Display adjustments do not change VRM export; re-export currently requests agent work.
+Image creation also provides full-body reference views for proportion adjustment. During motion checking, the app displays the VRM intended for final export, with animation and spring physics. While paused, drag the model to check its physics response. Choose "Export VRM," enter the model information, and save it. The separate Preview and Finish tabs have been removed. For screen-by-screen instructions, see the [screenshot tutorial](tutorial.md).
 
 ## Get help
 

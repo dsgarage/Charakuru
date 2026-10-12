@@ -1,6 +1,6 @@
 # 利用規約の解説
 
-[English](license.md)
+[English](license.md) · [한국어](license.ko.md)
 
 非商用・商用を問わず、以下の条件内であれば自由にお使いいただけます。
 
