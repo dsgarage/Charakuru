@@ -6,7 +6,7 @@
 
 <p align="center"><a href="README.md">English</a> · <a href="README.ja.md">日本語</a> · <a href="docs/tutorial.ko.md"><b>튜토리얼</b></a> · <a href="https://github.com/nanocle/Charakuru/releases">다운로드 (Releases)</a> · <a href="docs/license.ko.md">이용 조건</a></p>
 
-<p align="center"><img alt="version" src="https://img.shields.io/badge/version-1.1.0-22d3ee"> <img alt="Node.js" src="https://img.shields.io/badge/Node.js-22%2B-5fa04e"> <img alt="output" src="https://img.shields.io/badge/output-VRM%201.0-a78bfa"> <img alt="license" src="https://img.shields.io/badge/license-source--available-64748b"></p>
+<p align="center"><img alt="version" src="https://img.shields.io/badge/version-1.0.4-22d3ee"> <img alt="Node.js" src="https://img.shields.io/badge/Node.js-22%2B-5fa04e"> <img alt="output" src="https://img.shields.io/badge/output-VRM%201.0-a78bfa"> <img alt="license" src="https://img.shields.io/badge/license-source--available-64748b"></p>
 
 ## Charakuru란?
 
@@ -64,7 +64,7 @@ Tripo의 Smart Mesh를 활용하는 캐릭터 모델링 지원 키트입니다. 
 
 이 저장소에는 배포용 문서와 이미지가 포함되어 있습니다. 실행 가능한 앱과 루트 `AGENTS.md`는 전용 배포 ZIP에 들어 있습니다.
 
-1. [Releases](https://github.com/nanocle/Charakuru/releases)에서 전용 `charakuru-1.1.0-….zip`을 다운로드하여 쓰기 가능한 폴더에 풉니다. GitHub의 자동 생성 ‘Source code’ ZIP과 구분하세요.
+1. [Releases](https://github.com/nanocle/Charakuru/releases)에서 전용 `charakuru-1.0.4-….zip`을 다운로드하여 쓰기 가능한 폴더에 풉니다. GitHub의 자동 생성 ‘Source code’ ZIP과 구분하세요.
 2. Codex에서 폴더를 열고 다음처럼 요청합니다.
 
    ```text

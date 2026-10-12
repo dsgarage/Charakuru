@@ -33,7 +33,7 @@
 
 **👤 사용자 조작**
 
-1. [Releases](https://github.com/nanocle/Charakuru/releases)에서 전용 `charakuru-1.1.0-….zip`을 다운로드하여 쓰기 가능한 폴더에 풉니다. ‘Source code’ ZIP과 구분하세요.
+1. [Releases](https://github.com/nanocle/Charakuru/releases)에서 전용 `charakuru-1.0.4-….zip`을 다운로드하여 쓰기 가능한 폴더에 풉니다. ‘Source code’ ZIP과 구분하세요.
 2. Codex에서 폴더를 열어 다음처럼 요청합니다.
 
    ```text
