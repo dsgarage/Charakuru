@@ -13,7 +13,8 @@
   <a href="README.ko.md">한국어</a> ·
   <a href="docs/tutorial.ja.md"><b>チュートリアル</b></a> ·
   <a href="https://github.com/nanocle/Charakuru/releases">ダウンロード（Releases）</a> ·
-  <a href="docs/license.ja.md">利用規約</a>
+  <a href="docs/license.ja.md">利用規約</a> ·
+  <a href="https://discord.gg/tripoai"><b>Discord</b></a>
 </p>
 
 <p align="center">
@@ -22,6 +23,18 @@
   <img alt="output" src="https://img.shields.io/badge/output-VRM%201.0-a78bfa">
   <img alt="license" src="https://img.shields.io/badge/license-source--available-64748b">
 </p>
+
+## 💬 Discordコミュニティに参加しよう！
+
+Tripo公式Discordサーバーに、**きゃらくる専用カテゴリ**を用意していただきました！
+
+使い方の質問やフィードバック、きゃらくるで作ったアバターや作品の共有などにご利用ください。開発者のNano（ナノ）や、ほかのクリエイターとの雑談・交流も歓迎です！
+
+きゃらくるを使ったコンテストなど、今後のイベントの告知もこちらで行う予定です。これから使ってみたい方も、制作中の方も、お気軽にどうぞ！
+
+**[👉 Tripo公式Discordに参加する](https://discord.gg/tripoai)**
+
+参加後は、きゃらくる専用カテゴリへ！
 
 ## きゃらくるとは？
 

@@ -4,9 +4,21 @@
 
 <p align="center">캐릭터 일러스트 한 장으로 AI 에이전트와 역할을 나누어 VRM 아바타를 만드는 키트입니다.</p>
 
-<p align="center"><a href="README.md">English</a> · <a href="README.ja.md">日本語</a> · <a href="docs/tutorial.ko.md"><b>튜토리얼</b></a> · <a href="https://github.com/nanocle/Charakuru/releases">다운로드 (Releases)</a> · <a href="docs/license.ko.md">이용 조건</a></p>
+<p align="center"><a href="README.md">English</a> · <a href="README.ja.md">日本語</a> · <a href="docs/tutorial.ko.md"><b>튜토리얼</b></a> · <a href="https://github.com/nanocle/Charakuru/releases">다운로드 (Releases)</a> · <a href="docs/license.ko.md">이용 조건</a> · <a href="https://discord.gg/tripoai"><b>Discord</b></a></p>
 
 <p align="center"><img alt="version" src="https://img.shields.io/badge/version-1.0.4-22d3ee"> <img alt="Node.js" src="https://img.shields.io/badge/Node.js-22%2B-5fa04e"> <img alt="output" src="https://img.shields.io/badge/output-VRM%201.0-a78bfa"> <img alt="license" src="https://img.shields.io/badge/license-source--available-64748b"></p>
+
+## 💬 Discord 커뮤니티에 참여하세요!
+
+Tripo 공식 Discord 서버에 **Charakuru 전용 카테고리**가 마련되었습니다!
+
+사용법에 관한 질문과 피드백, Charakuru로 만든 아바타와 작품을 자유롭게 공유해 주세요. 개발자 Nano(ナノ) 및 다른 크리에이터들과 편하게 이야기를 나누고 교류하는 것도 환영합니다!
+
+Charakuru를 활용한 콘테스트 등 앞으로 열릴 이벤트 소식도 이곳에서 안내할 예정입니다. 이제 사용해 보려는 분도, 이미 작품을 만들고 있는 분도 부담 없이 참여해 주세요!
+
+**[👉 Tripo 공식 Discord에 참여하기](https://discord.gg/tripoai)**
+
+서버에 참여한 후 Charakuru 전용 카테고리로 오세요!
 
 ## Charakuru란?
 

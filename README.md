@@ -13,7 +13,8 @@
   <a href="README.ko.md">한국어</a> ·
   <a href="docs/tutorial.md"><b>Tutorial</b></a> ·
   <a href="https://github.com/nanocle/Charakuru/releases">Download (Releases)</a> ·
-  <a href="docs/license.md">Terms of Use</a>
+  <a href="docs/license.md">Terms of Use</a> ·
+  <a href="https://discord.gg/tripoai"><b>Discord</b></a>
 </p>
 
 <p align="center">
@@ -22,6 +23,18 @@
   <img alt="output" src="https://img.shields.io/badge/output-VRM%201.0-a78bfa">
   <img alt="license" src="https://img.shields.io/badge/license-source--available-64748b">
 </p>
+
+## 💬 Join the Discord community!
+
+Tripo has kindly set up a **dedicated Charakuru category** on its official Discord server!
+
+Ask questions, share feedback, and show off the avatars and other creations you've made with Charakuru. You're also welcome to chat with fellow creators and Nano (ナノ), the creator of Charakuru!
+
+We'll also use this space to announce upcoming events, including contests using Charakuru. Whether you're curious about trying the kit or already working on a project, come say hello!
+
+**[👉 Join the official Tripo Discord](https://discord.gg/tripoai)**
+
+Once you've joined, head to the dedicated Charakuru category!
 
 ## What is Charakuru?
 
