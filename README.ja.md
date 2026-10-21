@@ -11,6 +11,7 @@
 <p align="center">
   <a href="README.md">English</a> ·
   <a href="README.ko.md">한국어</a> ·
+  <a href="README.zh-CN.md">简体中文</a> ·
   <a href="docs/tutorial.ja.md"><b>チュートリアル</b></a> ·
   <a href="https://github.com/nanocle/Charakuru/releases">ダウンロード（Releases）</a> ·
   <a href="docs/license.ja.md">利用規約</a> ·
@@ -18,7 +19,7 @@
 </p>
 
 <p align="center">
-  <img alt="version" src="https://img.shields.io/badge/version-1.0.4-22d3ee">
+  <img alt="version" src="https://img.shields.io/badge/version-1.0.5-22d3ee">
   <img alt="Node.js" src="https://img.shields.io/badge/Node.js-22%2B-5fa04e">
   <img alt="output" src="https://img.shields.io/badge/output-VRM%201.0-a78bfa">
   <img alt="license" src="https://img.shields.io/badge/license-source--available-64748b">
@@ -126,9 +127,7 @@ AIエージェントへの丸投げほど非現実的でもなく、すべて人
 
 ## はじめかた
 
-このリポジトリには配布向けの文書と画像を格納しています。動作するアプリとルートの `AGENTS.md` は専用の配布ZIPに含まれます。
-
-1. [Releases](https://github.com/nanocle/Charakuru/releases) から **`charakuru-1.0.4-….zip`** をダウンロードし、書き込みできる好きなフォルダに展開します。<br><sub>※ GitHubが自動で付ける「Source code」のZIPは説明文書だけで、キットは入っていません。</sub>
+1. [Releases](https://github.com/nanocle/Charakuru/releases) から **`charakuru-1.0.5-….zip`** をダウンロードし、書き込みできる好きなフォルダに展開します。<br><sub>※ GitHubが自動で付ける「Source code」のZIPは説明文書だけで、キットは入っていません。</sub>
 2. Codex で展開したフォルダを開き、次のように頼みます。
 
    ```text
@@ -137,7 +136,7 @@ AIエージェントへの丸投げほど非現実的でもなく、すべて人
 
 3. エージェントが環境を確認してアプリを起動します。表示された `http://127.0.0.1:8766` をブラウザーで開けば準備完了です。
 
-自分で起動する場合は、展開したフォルダで `npm start` を実行します。アプリは最初は英語で表示されます。左下の **Settings** を開き、**Language** の選択欄で日本語・English・한국어を選べます。
+自分で起動する場合は、展開したフォルダで `npm start` を実行します。アプリは最初は英語で表示されます。左下の **Settings** を開き、**Language** の選択欄で日本語・English・한국어・简体中文を選べます。依頼文とエージェントの説明・進捗・結果は選択言語に合わせます。
 
 続きは **[チュートリアル](docs/tutorial.ja.md)** で、1体目を作り終えるまでの手順を画面つきで説明しています。
 
@@ -152,7 +151,7 @@ AIエージェントへの丸投げほど非現実的でもなく、すべて人
 | `skills/` | 制作工程に使う9つのSkillsです。 |
 | `scripts/` | エージェントがプロジェクトを更新するためのスクリプトです。 |
 | `assets/donor/weighted-body.blend` | ウェイト転送に使う素体です。 |
-| `docs/` | チュートリアル、動作確認の使い方、日本語・英語・韓国語の利用規約の解説です。 |
+| `docs/` | チュートリアル、動作確認の使い方、日本語・英語・韓国語・簡体字中国語の利用規約の解説です。 |
 
 <details>
 <summary>9つのSkills</summary>

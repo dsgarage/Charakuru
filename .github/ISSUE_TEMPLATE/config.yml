@@ -1,5 +1,5 @@
-blank_issues_enabled: false
+blank_issues_enabled: true
 contact_links:
-  - name: "商用利用・再配布・機密の問い合わせ / Licensing and confidential inquiries"
-    url: "https://github.com/nanocle/Charakuru/blob/main/LICENSE"
-    about: "LICENSE記載の連絡先をご利用ください。財務情報や秘密をIssueへ投稿しないでください。 / Use the contact in LICENSE; do not post financial information or secrets in an Issue."
+  - name: Commercial licensing / 商用利用 / 商业许可 / 상업적 이용
+    url: mailto:divedesign.info@gmail.com
+    about: Contact by email / 商用利用・再配布はメールへ / 商业使用与再分发请联系邮箱 / 상업적 이용·재배포는 이메일로 문의하세요

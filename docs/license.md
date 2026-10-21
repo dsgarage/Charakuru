@@ -1,6 +1,6 @@
 # Terms of Use explained
 
-[日本語](license.ja.md) · [한국어](license.ko.md)
+[日本語](license.ja.md) · [한국어](license.ko.md) · [简体中文](license.zh-CN.md)
 
 You may freely use the kit for non-commercial and commercial purposes within the following conditions.
 

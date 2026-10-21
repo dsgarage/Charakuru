@@ -1,6 +1,6 @@
 # 이용 조건 해설
 
-[English](license.md) · [日本語](license.ja.md)
+[English](license.md) · [简体中文](license.zh-CN.md) · [日本語](license.ja.md)
 
 비상업적·상업적 이용 모두 다음 조건과 정식 라이선스의 범위에서 사용할 수 있습니다.
 

@@ -4,9 +4,10 @@
 
 <p align="center">캐릭터 일러스트 한 장으로 AI 에이전트와 역할을 나누어 VRM 아바타를 만드는 키트입니다.</p>
 
-<p align="center"><a href="README.md">English</a> · <a href="README.ja.md">日本語</a> · <a href="docs/tutorial.ko.md"><b>튜토리얼</b></a> · <a href="https://github.com/nanocle/Charakuru/releases">다운로드 (Releases)</a> · <a href="docs/license.ko.md">이용 조건</a> · <a href="https://discord.gg/tripoai"><b>Discord</b></a></p>
+<p align="center"><a href="README.md">English</a> ·
+  <a href="README.zh-CN.md">简体中文</a> · <a href="README.ja.md">日本語</a> · <a href="docs/tutorial.ko.md"><b>튜토리얼</b></a> · <a href="https://github.com/nanocle/Charakuru/releases">다운로드 (Releases)</a> · <a href="docs/license.ko.md">이용 조건</a> · <a href="https://discord.gg/tripoai"><b>Discord</b></a></p>
 
-<p align="center"><img alt="version" src="https://img.shields.io/badge/version-1.0.4-22d3ee"> <img alt="Node.js" src="https://img.shields.io/badge/Node.js-22%2B-5fa04e"> <img alt="output" src="https://img.shields.io/badge/output-VRM%201.0-a78bfa"> <img alt="license" src="https://img.shields.io/badge/license-source--available-64748b"></p>
+<p align="center"><img alt="version" src="https://img.shields.io/badge/version-1.0.5-22d3ee"> <img alt="Node.js" src="https://img.shields.io/badge/Node.js-22%2B-5fa04e"> <img alt="output" src="https://img.shields.io/badge/output-VRM%201.0-a78bfa"> <img alt="license" src="https://img.shields.io/badge/license-source--available-64748b"></p>
 
 ## 💬 Discord 커뮤니티에 참여하세요!
 
@@ -74,9 +75,7 @@ Tripo의 Smart Mesh를 활용하는 캐릭터 모델링 지원 키트입니다. 
 
 ## 시작하기
 
-이 저장소에는 배포용 문서와 이미지가 포함되어 있습니다. 실행 가능한 앱과 루트 `AGENTS.md`는 전용 배포 ZIP에 들어 있습니다.
-
-1. [Releases](https://github.com/nanocle/Charakuru/releases)에서 전용 `charakuru-1.0.4-….zip`을 다운로드하여 쓰기 가능한 폴더에 풉니다. GitHub의 자동 생성 ‘Source code’ ZIP과 구분하세요.
+1. [Releases](https://github.com/nanocle/Charakuru/releases)에서 전용 `charakuru-1.0.5-….zip`을 다운로드하여 쓰기 가능한 폴더에 풉니다. GitHub의 자동 생성 ‘Source code’ ZIP과 구분하세요.
 2. Codex에서 폴더를 열고 다음처럼 요청합니다.
 
    ```text
@@ -99,7 +98,7 @@ Tripo의 Smart Mesh를 활용하는 캐릭터 모델링 지원 키트입니다. 
 | `skills/` | 제작 과정에 사용하는 9개의 Skills |
 | `scripts/` | 에이전트의 프로젝트 업데이트 도구 |
 | `assets/donor/weighted-body.blend` | 웨이트 전송용 기본 모델 |
-| `docs/` | 튜토리얼, 동작 확인, 일본어·영어·한국어 이용 조건 해설 |
+| `docs/` | 튜토리얼, 동작 확인, 일본어·영어·한국어·중국어 간체 이용 조건 해설 |
 
 <details><summary>9개의 Skills</summary>
 
@@ -140,3 +139,7 @@ Tripo의 Smart Mesh를 활용하는 캐릭터 모델링 지원 키트입니다. 
 ---
 
 <p align="center"><sub>Made by Nano（ナノ） · sponsored by Tripo</sub></p>
+
+## 표시 언어와 요청문
+
+설정에서 English·日本語·한국어·简体中文을 선택할 수 있습니다. 일반 제작 요청과 에이전트의 설명·진행·결과는 선택한 언어를 유지합니다. 사용자 이름·메모·경로는 번역하지 않습니다. Tripo가 해당 언어를 지원하지 않으면 영어 화면을 사용하고 선택한 언어로 안내합니다.

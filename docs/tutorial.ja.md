@@ -1,6 +1,6 @@
 # チュートリアル：1体目のVRMアバターを作る
 
-[README](../README.ja.md) · [English](tutorial.md) · [한국어](tutorial.ko.md)
+[README](../README.ja.md) · [English](tutorial.md) · [한국어](tutorial.ko.md) · [简体中文](tutorial.zh-CN.md)
 
 > [!WARNING]
 > **このキットは開発途中です。**
@@ -49,13 +49,13 @@
 
 **👤 あなたの操作**
 
-1. [Releases](https://github.com/nanocle/Charakuru/releases) から `charakuru-1.0.4-….zip` をダウンロードし、書き込みできるフォルダに展開します。「Source code」のZIPではありません。
+1. [Releases](https://github.com/nanocle/Charakuru/releases) から `charakuru-1.0.5-….zip` をダウンロードし、書き込みできるフォルダに展開します。「Source code」のZIPではありません。
 2. Codex で展開したフォルダを開き、次のように頼みます。
    ```text
    ルートAGENTS.mdを読んで、このキットでキャラクター制作を始めたい
    ```
 3. エージェントがアプリを起動したら、`http://127.0.0.1:8766` をブラウザーで開きます。
-4. 表示が英語の場合は、左下の **Settings** を開き、**Language** の選択欄で「日本語」を選びます。韓国語は「한국어」を選びます。
+4. 表示が英語の場合は、左下の **Settings** を開き、**Language** の選択欄で「日本語」を選びます。韓国語は「한국어」、簡体字中国語は「简体中文」を選びます。通常制作の依頼文とエージェントの説明・進捗・完了報告も選択言語に合わせます。
 
 **🤖 エージェントの作業**
 

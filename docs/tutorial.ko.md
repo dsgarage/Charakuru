@@ -1,6 +1,6 @@
 # 튜토리얼: 첫 VRM 아바타 만들기
 
-[README](../README.ko.md) · [English](tutorial.md) · [日本語](tutorial.ja.md)
+[README](../README.ko.md) · [English](tutorial.md) · [简体中文](tutorial.zh-CN.md) · [日本語](tutorial.ja.md)
 
 > [!WARNING]
 > **이 키트는 개발 중이며 이 설명은 AI가 작성했습니다.** 부족한 문서, 오류, 아직 없는 기능이 있습니다. Codex나 Claude Code에서 키트 폴더를 열어 ‘README.ko.md와 AGENTS.md를 읽고 무엇을 할 수 있는지 한국어로 설명해 주세요’라고 요청하며 진행할 수 있습니다.
@@ -33,7 +33,7 @@
 
 **👤 사용자 조작**
 
-1. [Releases](https://github.com/nanocle/Charakuru/releases)에서 전용 `charakuru-1.0.4-….zip`을 다운로드하여 쓰기 가능한 폴더에 풉니다. ‘Source code’ ZIP과 구분하세요.
+1. [Releases](https://github.com/nanocle/Charakuru/releases)에서 전용 `charakuru-1.0.5-….zip`을 다운로드하여 쓰기 가능한 폴더에 풉니다. ‘Source code’ ZIP과 구분하세요.
 2. Codex에서 폴더를 열어 다음처럼 요청합니다.
 
    ```text
@@ -61,7 +61,7 @@
 
 <p align="center"><img src="images/ko/03-request-images.jpg" alt="한국어 요청문 창" width="860"></p>
 
-한국어 UI에서 요청문은 한국어로 작성됩니다. `begin` 등의 실행 명령, 경로, ID는 그대로 전달하세요. 언어만 전환하면 같은 요청의 표시 문구가 바뀌며 새 요청을 만들지 않습니다.
+English·日本語·한국어·简体中文을 선택할 수 있으며 일반 제작 요청문과 에이전트의 설명·진행·결과는 선택한 언어를 유지합니다. `begin` 등의 실행 명령, 경로, ID는 그대로 전달하세요. 언어만 전환하면 같은 요청의 표시 문구가 바뀌며 새 요청을 만들지 않습니다.
 
 ## 2. 원본 등록과 8장 이미지 요청
 

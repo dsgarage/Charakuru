@@ -12,9 +12,13 @@ Tripo와 아바타 키트를 열 때 사용자의 기존 데스크톱 브라우�
 
 기존 로그인 상태에는 브라우저 연결을 사용하세요. Codex 내장 브라우저는 별도 상태이므로 대체로 사용하지 않습니다. 연결 설정은 [공식 안내](https://learn.chatgpt.com/docs/chrome-extension)를 참조합니다.
 
-Tripo Studio 모델 다운로드는 배포 ZIP에 포함된 `skills/tripo-studio-download/SKILL.md`를 사용합니다. 일반 Export를 조작하여 같은 컴퓨터의 다운로드 파일을 확인하세요. Studio Export에 다운로드 이벤트 대기·저장 헬퍼를 함께 사용하지 마세요.
+Tripo Studio 모델 다운로드는 `tripo-studio-download`를 사용합니다. 일반 Export를 조작하여 같은 컴퓨터의 다운로드 파일을 확인하세요. Studio Export에 다운로드 이벤트 대기·저장 헬퍼를 함께 사용하지 마세요.
 
-## 아바타 키트 요청을 받았을 때
+## Tripo 표시 언어
+
+`https://studio.tripo3d.ai/workspace/generate`처럼 `/ja/` 없는 주소를 사용하고 기존 로그인 탭에서 한국어를 선택하세요. 현재 서비스가 지원하지 않으면 English를 사용하고 사용자에게 한국어로 안내하세요. 자료가 일본어여도 설명·진행·결과는 요청 언어를 유지하며 경로·ID·사용자 이름과 메모는 번역하지 않습니다.
+
+## 요청 시작과 저장
 
 요청의 `agent-session.mjs begin`을 실행하고 요청을 보낸 탭을 열어 둔 채 최신 상태 저장을 기다리세요. 이 명령을 위해 다른 탭을 열 필요는 없습니다. 완료 알림의 자동 불러오기를 사용합니다.
 

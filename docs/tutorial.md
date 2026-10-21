@@ -1,6 +1,6 @@
 # Tutorial: make your first VRM avatar
 
-[README](../README.md) · [日本語](tutorial.ja.md) · [한국어](tutorial.ko.md)
+[README](../README.md) · [日本語](tutorial.ja.md) · [한국어](tutorial.ko.md) · [简体中文](tutorial.zh-CN.md)
 
 > [!WARNING]
 > **This kit is still in development.**
@@ -49,7 +49,7 @@ Two more things make the process smoother:
 
 **👤 What you do**
 
-1. Download `charakuru-1.0.4-….zip` from [Releases](https://github.com/nanocle/Charakuru/releases) and extract it to a folder you can write to. Not the "Source code" ZIP.
+1. Download `charakuru-1.0.5-….zip` from [Releases](https://github.com/nanocle/Charakuru/releases) and extract it to a folder you can write to. Not the "Source code" ZIP.
 2. Open the extracted folder in Codex and ask:
    ```text
    Read the root AGENTS.md and help me start creating a character with this kit.
@@ -65,7 +65,7 @@ It reads `AGENTS.md` and checks whether Node.js, image generation, browser contr
 The menu on the left shows the stages, from top to bottom: **Image library → Model editor → Rigging → Motion check**. **New / Open / Save** at the top right handle the project.
 
 > [!TIP]
-> To start the app yourself, run `npm start` in the extracted folder. No `npm install` is needed. To switch the UI to Japanese, open **Settings** at the bottom left and select 日本語 or 한국어 under **Language**.
+> To start the app yourself, run `npm start` in the extracted folder. No `npm install` is needed. To change the UI language, open **Settings** at the bottom left and select English, 日本語, 한국어 or 简体中文 under **Language**.
 
 ### How to send a request (same for every step)
 
@@ -80,7 +80,7 @@ Every step below uses the same routine.
 <p align="center"><img src="images/en/03-request-images.jpg" alt="The request window" width="860"></p>
 
 > [!NOTE]
-> The English UI uses Japanese agent instructions. Paste them as is and keep chatting in English. Select 한국어 to use Korean UI and Korean requests.
+> Select English, 日本語, 한국어 or 简体中文 in Settings → Language. Copied requests and agent reports use that language. User names, notes and paths remain unchanged.
 
 ## 2. Load the illustration and request 8 images
 

@@ -10,7 +10,7 @@ Tripoやアバターキットを開くときは、ユーザーが使っている
 
 Codexで既存のブラウザやログイン状態を使う場合は、利用可能なブラウザ接続を使います。Codex内ブラウザは通常のブラウザと別の状態を持つため、既存ブラウザの代わりとして開きません。接続の設定は[公式OpenAIドキュメント](https://learn.chatgpt.com/docs/chrome-extension)を参照してください。
 
-Tripo Studioのモデル取得は、配布ZIPに含まれる `skills/tripo-studio-download/SKILL.md` を使います。通常のExportを操作し、ブラウザと同じPCの保存フォルダで実ファイルを確認します。StudioのExportにダウンロードイベントの待機・保存ヘルパーを併用しません。
+Tripo Studioのモデル取得は`tripo-studio-download`を使います。通常のExportを操作し、ブラウザと同じPCの保存フォルダで実ファイルを確認します。StudioのExportにダウンロードイベントの待機・保存ヘルパーを併用しません。
 
 ## アバターキットの依頼を受けたとき
 

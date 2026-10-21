@@ -11,6 +11,7 @@
 <p align="center">
   <a href="README.ja.md">日本語</a> ·
   <a href="README.ko.md">한국어</a> ·
+  <a href="README.zh-CN.md">简体中文</a> ·
   <a href="docs/tutorial.md"><b>Tutorial</b></a> ·
   <a href="https://github.com/nanocle/Charakuru/releases">Download (Releases)</a> ·
   <a href="docs/license.md">Terms of Use</a> ·
@@ -18,7 +19,7 @@
 </p>
 
 <p align="center">
-  <img alt="version" src="https://img.shields.io/badge/version-1.0.4-22d3ee">
+  <img alt="version" src="https://img.shields.io/badge/version-1.0.5-22d3ee">
   <img alt="Node.js" src="https://img.shields.io/badge/Node.js-22%2B-5fa04e">
   <img alt="output" src="https://img.shields.io/badge/output-VRM%201.0-a78bfa">
   <img alt="license" src="https://img.shields.io/badge/license-source--available-64748b">
@@ -126,9 +127,7 @@ Accounts, terms and fees for external services are your own. The agent checks wh
 
 ## Getting started
 
-This repository contains public documentation and images. The working kit, including its root `AGENTS.md`, is distributed in the dedicated release ZIP.
-
-1. Download **`charakuru-1.0.4-….zip`** from [Releases](https://github.com/nanocle/Charakuru/releases) and extract it to any folder you can write to.<br><sub>GitHub's automatic "Source code" archive contains only these documents, not the kit.</sub>
+1. Download **`charakuru-1.0.5-….zip`** from [Releases](https://github.com/nanocle/Charakuru/releases) and extract it to any folder you can write to.<br><sub>GitHub's automatic "Source code" archive contains only these documents, not the kit.</sub>
 2. Open the extracted folder in Codex and ask:
 
    ```text
@@ -152,7 +151,7 @@ New agent requests use the `begin` command to avoid Codex on Windows mistaking t
 | `skills/` | Nine Skills for the production workflow. |
 | `scripts/` | Scripts the agent uses to update the project. |
 | `assets/donor/weighted-body.blend` | The base body used for weight transfer. |
-| `docs/` | The tutorial, the motion review guide and plain-language terms in English, Japanese and Korean. |
+| `docs/` | The tutorial, the motion review guide and plain-language terms in English, Japanese, Korean and Simplified Chinese. |
 
 <details>
 <summary>The nine Skills</summary>
@@ -177,7 +176,7 @@ New agent requests use the `begin` command to avoid Codex on Windows mistaking t
 - New characters have a neutral face with a fixed gaze. Expressions and eye movement are not included.
 - Motion review automatically shows the checked VRM, even before model information is registered. Walking and physics start enabled. You decide whether the appearance is satisfactory.
 - **Export VRM** opens the model information form. Confirm the name, authors and usage terms, then save the information and download in one step. The model, materials and springs match motion review; the information is saved with the project for future exports. No agent request is needed.
-- The UI supports English, Japanese and Korean. Korean UI requests are written in Korean; the existing English UI requests use Japanese instructions.
+- The UI supports English, Japanese, Korean and Simplified Chinese. Standard production requests and reports follow the selected language, even when bundled references are in another language.
 - When moving your work, keep the whole project folder with the finished VRM and Blend files, not just `project.charakit`.
 
 ## Terms of Use

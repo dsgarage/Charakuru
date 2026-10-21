@@ -1,0 +1,50 @@
+name: "오류 또는 개선 제안 (한국어)"
+description: "제작 과정의 문제, 오류 또는 개선 제안을 보고합니다"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        PR은 받지 않습니다. 필요한 정보만 적고 인증 정보, 개인 정보·경로, 비공개 소재, 원본 모델, 전체 프로젝트나 대화를 첨부하지 마세요. 이미지·오류에서도 개인 정보를 지워 주세요.
+        상업적 이용·재배포 문의는 divedesign.info@gmail.com으로 보내고 재무 정보는 공개하지 마세요.
+  - type: input
+    id: version
+    attributes:
+      label: 키트 버전
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: OS와 브라우저
+    validations:
+      required: true
+  - type: input
+    id: agent
+    attributes:
+      label: 에이전트·모델·제작 단계
+      description: Skill 문제라면 Blender와 관련 도구 버전도 포함하세요
+  - type: textarea
+    id: steps
+    attributes:
+      label: 조작 순서 또는 개선 제안
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 예상 결과
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 실제 결과
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: 제출 전 확인
+      options:
+        - label: 비밀·개인 정보·비공개 소재·제작 원본을 포함하지 않았습니다
+          required: true
