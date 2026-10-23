@@ -10,6 +10,9 @@ export async function smoke(directory) {
   const skill = await fs.readFile(path.join(directory, 'skills/tripo-agent-workflow/SKILL.md'), 'utf8');
   if (skill.includes('**Smart Mesh P2.0、四角面、25,000、生成数4**') || !skill.includes('Smart UVを必ず実行')) throw Error('制作Skillにカスタム工程が反映されていません。');
   for (const file of ['scripts/export-segmentation.py', 'scripts/tripo-project.mjs', 'scripts/agent-session.mjs']) await fs.access(path.join(directory, file));
+  for (const file of ['dsgarage-work-status.mjs', 'dsgarage-workspace.json', 'public/dsgarage-work-ui.mjs']) await fs.access(path.join(directory, file));
+  const serverSource = await fs.readFile(path.join(directory, 'server.mjs'), 'utf8');
+  if (!serverSource.includes('handleWorkStatus')) throw Error('制作状況APIが接続されていません。');
   const {sessionPrompt} = await import(pathToFileURL(path.join(directory, 'public/session-prompts.mjs')));
   const {productionHandoff} = await import(pathToFileURL(path.join(directory, 'public/handoff.mjs')));
   const {newProject, packProject, unpackProject} = await import(pathToFileURL(path.join(directory, 'public/project.mjs')));
@@ -39,7 +42,7 @@ export async function smoke(directory) {
     server.listen(0, '127.0.0.1', () => { const value = server.address().port; server.close(() => resolve(value)); });
   });
   const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'charakuru-smoke-'));
-  const child = spawn(process.execPath, [path.join(directory, 'server.mjs')], {cwd: directory, env: {...process.env, PORT: String(port), CHARAKIT_PROJECTS_ROOT: path.join(temp, 'projects'), CHARAKIT_SESSION_FILE: path.join(temp, 'session.json'), CHARAKIT_CONFIG: path.join(temp, 'config.json')}, stdio: ['ignore', 'pipe', 'pipe']});
+  const child = spawn(process.execPath, [path.join(directory, 'server.mjs')], {cwd: directory, env: {...process.env, PORT: String(port), CHARAKIT_PROJECTS_ROOT: path.join(temp, 'projects'), CHARAKIT_SESSION_FILE: path.join(temp, 'session.json'), CHARAKIT_CONFIG: path.join(temp, 'config.json'), CHARAKIT_WORK_STATUS_FILE: path.join(temp, 'work-status.json')}, stdio: ['ignore', 'pipe', 'pipe']});
   let logs = ''; child.stdout.on('data', c => logs += c); child.stderr.on('data', c => logs += c);
   const ended = new Promise(resolve => child.once('close', resolve));
   let error; child.once('error', e => { error = e; });
@@ -56,12 +59,22 @@ export async function smoke(directory) {
     if (!ready) throw Error(`アプリ起動がタイムアウトしました: ${logs}`);
     const response = await fetch(`http://127.0.0.1:${port}/api/samples`);
     if (!response.ok || typeof (await response.json()) !== 'object') throw Error('API確認に失敗しました。');
+    const work = `http://127.0.0.1:${port}/api/dsgarage/work`;
+    const started = await fetch(work, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({action: 'start', stage: 'セグメント化', detail: 'Windowsで部位を確認中'})});
+    if (!started.ok) throw Error(`作業状態の開始に失敗しました: ${await started.text()}`);
+    const job = await started.json();
+    const updated = await fetch(work, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({action: 'finish', id: job.id, detail: '結果を確認してください'})});
+    if (!updated.ok) throw Error('作業状態の完了に失敗しました。');
+    const visible = await fetch(work), state = await visible.json();
+    if (state.jobs?.[0]?.state !== 'complete' || state.jobs[0].history.length !== 2) throw Error('制作状況がUI用APIへ保存されません。');
+    const index = await (await fetch(`http://127.0.0.1:${port}/`)).text();
+    if (!index.includes('dsgarage-work-ui.mjs')) throw Error('制作状況の画面が読み込まれません。');
   } finally {
     if (child.exitCode === null) child.kill();
     await ended;
     await fs.rm(temp, {recursive: true, force: true});
   }
-  return {passed: true, locales: ['ja', 'en', 'ko', 'zh-CN'], http: true, projectData: 'isolated'};
+  return {passed: true, locales: ['ja', 'en', 'ko', 'zh-CN'], http: true, workStatus: true, projectData: 'isolated'};
 }
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const state = JSON.parse(await fs.readFile(path.join(root, '.runtime/current.json'), 'utf8'));
