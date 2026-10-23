@@ -1,3 +1,5 @@
+> **dsgarage 非公式カスタム版** — ハイポリ原本 → セグメント化 → Tripo Smart UV必須。`npm start`で公式最新版を取得・検証して起動します。[起動方法と保存場所](docs/dsgarage.md)
+
 <p align="center">
   <img src="docs/images/readme-hero.png" alt="Charakuru (きゃらくる): AI Character Modeling Kit, sponsored by Tripo" width="100%">
 </p>

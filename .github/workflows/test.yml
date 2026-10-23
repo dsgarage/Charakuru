@@ -1,0 +1,36 @@
+name: カスタム版の検証
+on:
+  pull_request:
+    branches: [develop, main]
+  push:
+    branches: [develop]
+  workflow_dispatch:
+  schedule:
+    - cron: '30 0 * * *'
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: 単体検証
+        run: npm test
+      - name: 公式upstreamを登録
+        run: git remote add upstream https://github.com/nanocle/Charakuru.git
+      - name: 記録済みの公式版を取得・適用・起動検証
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: npm run sync -- --locked
+      - name: 最新公式版との互換性を検証
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: npm run sync
