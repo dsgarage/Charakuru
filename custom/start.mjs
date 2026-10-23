@@ -13,6 +13,7 @@ try {
     CHARAKIT_PROJECTS_ROOT: process.env.CHARAKIT_PROJECTS_ROOT || path.join(local, 'projects'),
     CHARAKIT_SESSION_FILE: process.env.CHARAKIT_SESSION_FILE || path.join(local, 'session.json'),
     CHARAKIT_CONFIG: process.env.CHARAKIT_CONFIG || path.join(local, 'config.json')};
+  env.CHARAKIT_WORK_STATUS_FILE = process.env.CHARAKIT_WORK_STATUS_FILE || path.join(local, 'work-status.json');
   console.log(`制作データ: ${env.CHARAKIT_PROJECTS_ROOT}`);
   const child = spawn(process.execPath, [path.join(state.directory, 'server.mjs')], {cwd: state.directory, env, stdio: 'inherit'});
   for (const signal of ['SIGINT', 'SIGTERM']) process.on(signal, () => child.kill(signal));

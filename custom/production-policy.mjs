@@ -20,11 +20,12 @@ export function customSessionPrompt(request, appRoot, origin, locale = 'ja', pro
   const instruction = instructionFor(request.kind, project);
   if (!instruction) return null;
   const command = `node "${appRoot.replaceAll('\\', '/')}/scripts/agent-session.mjs"`;
-  return `dsgarage版きゃらくるの制作依頼（${policyId}）。回答言語は ${locale}。\n最初に次を実行し、saved: true と正本project・directoryを確認してください。失敗・拒否・依頼の失効時は原因を報告して停止し、古いキットから進めません。\n\n${command} begin ${origin} ${request.id}\n\n出力先のAGENTS.md、アプリのskills/charakit-project/SKILL.md、skills/tripo-agent-workflow/SKILL.md、docs/dsgarage-workflow.mdを読み、同じ.charakitを更新してください。ブラウザはdocs/browser-use.mdに従い既存タブを再利用します。\n\n${instruction}\n\n進捗: ${command} progress ${origin} ${request.id} "処理内容"\n完了: ${command} complete ${origin} ${request.id}\n中断: ${command} fail ${origin} ${request.id} "理由"\n実際に確認できた範囲だけを報告してください。`;
+  const work = `node "${appRoot.replaceAll('\\', '/')}/dsgarage-work-status.mjs"`;
+  return `dsgarage版きゃらくるの制作依頼（${policyId}）。回答言語は ${locale}。\n最初に次を実行し、saved: true と正本project・directoryを確認してください。失敗・拒否・依頼の失効時は原因を報告して停止し、古いキットから進めません。\n\n${command} begin ${origin} ${request.id}\n\n出力先のAGENTS.md、アプリのskills/charakit-project/SKILL.md、skills/tripo-agent-workflow/SKILL.md、docs/dsgarage-workflow.mdを読み、同じ.charakitを更新してください。ブラウザはdocs/browser-use.mdに従い既存タブを再利用します。\n\n${instruction}\n\n外部のTripo・Windows・Blender工程を開始する前に、${work} start "工程名" "今すること" で画面へ作業を登録してください。返ったIDを保持し、${work} update ID "次にすること"、finish ID "結果を確認する内容"、失敗時は fail ID "原因" で更新します。外部コマンドの実行は ${work} run "工程名" "今すること" -- 実行コマンド 引数 で包むと、生存更新と終了結果が自動で画面に出ます。何をしているか分からないまま処理を進めません。\n\n進捗: ${command} progress ${origin} ${request.id} "処理内容"\n完了: ${command} complete ${origin} ${request.id}\n中断: ${command} fail ${origin} ${request.id} "理由"\n実際に確認できた範囲だけを報告してください。`;
 }
 
 export function customHandoff(project, filename, locale, purpose) {
   const instruction = instructionFor(purpose && typeof purpose === 'object' ? purpose.kind : purpose, project);
   if (!instruction) return null;
-  return `dsgarage版（非公式、${policyId}）。回答言語: ${locale}。対象は ${filename}。別のキットで代用しません。\nアプリのskills/charakit-project/SKILL.md、skills/tripo-agent-workflow/SKILL.md、docs/dsgarage-workflow.mdを読んでください。\n\n${instruction}`;
+  return `dsgarage版（非公式、${policyId}）。回答言語: ${locale}。対象は ${filename}。別のキットで代用しません。\nアプリのskills/charakit-project/SKILL.md、skills/tripo-agent-workflow/SKILL.md、docs/dsgarage-workflow.mdを読んでください。外部処理はキットの dsgarage-work-status.mjs へ開始・進捗・完了または失敗を登録して、画面の「現在の制作作業」に表示してください。\n\n${instruction}`;
 }
