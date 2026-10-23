@@ -12,10 +12,22 @@ export async function smoke(directory) {
   for (const file of ['scripts/export-segmentation.py', 'scripts/tripo-project.mjs', 'scripts/agent-session.mjs']) await fs.access(path.join(directory, file));
   const {sessionPrompt} = await import(pathToFileURL(path.join(directory, 'public/session-prompts.mjs')));
   const {productionHandoff} = await import(pathToFileURL(path.join(directory, 'public/handoff.mjs')));
+  const {newProject, packProject, unpackProject} = await import(pathToFileURL(path.join(directory, 'public/project.mjs')));
+  const selected = newProject();selected.dsgarage = {generationMode: 'smart-mesh'};
+  const restored = await unpackProject(await (await packProject(selected, new Map())).blob.arrayBuffer());
+  if (restored.project.dsgarage?.generationMode !== 'smart-mesh') throw Error('選択した生成方式がプロジェクト保存で失われます。');
+  for (const file of ['session-ui.mjs', 'production-details.mjs']) {
+    const source = await fs.readFile(path.join(directory, 'public', file), 'utf8');
+    if (!source.includes('initialGenerationMode') && !source.includes('modeSelect')) throw Error(`${file}に生成方式の選択がありません。`);
+    if (!source.includes('generationMode')) throw Error(`${file}が生成方式を保存しません。`);
+  }
   for (const locale of ['ja', 'en', 'ko', 'zh-CN']) {
     const candidate = sessionPrompt({kind: 'candidates', id: 'smoke'}, directory, 'http://127.0.0.1:18766', locale);
     const material = sessionPrompt({kind: 'materials', id: 'smoke'}, directory, 'http://127.0.0.1:18766', locale);
     if (!candidate.includes('ハイポリ原本') || candidate.includes('25,000') || !candidate.includes(' begin ')) throw Error('候補生成のカスタム依頼文が不正です。');
+    if (!candidate.includes('通常のHD Model')) throw Error('既定がHD Modelではありません。');
+    const smart = sessionPrompt({kind: 'candidates', id: 'smoke'}, directory, 'http://127.0.0.1:18766', locale, {dsgarage: {generationMode: 'smart-mesh'}});
+    if (!smart.includes('選択されたSmart Mesh P2.0') || smart.includes('通常のHD Model')) throw Error('Smart Meshの明示選択が依頼文へ反映されません。');
     if (!material.includes('Smart UVを必ず実行') || !material.includes('セグメント化')) throw Error('Smart UV必須の依頼文が不正です。');
     const handoff = productionHandoff({assets: []}, 'sample.charakit', locale, 'tripo-generate');
     if (!handoff.includes('ハイポリ原本') || handoff.includes('25,000')) throw Error('旧依頼経路に低ポリ指定が残っています。');
