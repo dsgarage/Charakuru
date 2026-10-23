@@ -11,7 +11,7 @@ export async function overlayDigest() {
 }
 export async function applyOverlay(directory) {
   const specs = [
-    ['session-prompts.mjs', 'sessionPrompt', 'customSessionPrompt', 'request, appRoot, origin, locale'],
+    ['session-prompts.mjs', 'sessionPrompt', 'customSessionPrompt', 'request, appRoot, origin, locale, project'],
     ['handoff.mjs', 'productionHandoff', 'customHandoff', 'project, filename, locale, purpose']
   ];
   for (const [file, exported, custom, args] of specs) {
@@ -23,6 +23,30 @@ export async function applyOverlay(directory) {
     await fs.writeFile(filename, `// dsgarage版の工程のみ差し替える。\nimport {${exported} as original} from './${upstreamFile}';\nimport {${custom}} from './dsgarage-policy.mjs';\nexport function ${exported}(${args}) { return ${custom}(${args}) ?? original(${args}); }\n`);
   }
   await fs.copyFile(path.join(root, 'custom/production-policy.mjs'), path.join(directory, 'public/dsgarage-policy.mjs'));
+  const replaceExact = async (file, before, after) => {
+    const filename = path.join(directory, 'public', file);
+    const original = await fs.readFile(filename, 'utf8');
+    if (!original.includes(before)) throw Error(`公式との接続点が変わっています: ${file}`);
+    await fs.writeFile(filename, original.replace(before, after));
+  };
+  await replaceExact('session-ui.mjs',
+    "const actions=document.createElement('div');actions.className='journey-actions';actions.append($('#journeyNext'),$('#journeyRetry'));$('.left').append(actions);",
+    "const actions=document.createElement('div');actions.className='journey-actions';actions.append($('#journeyNext'),$('#journeyRetry'));$('.left').append(actions);const modeLabel=document.createElement('label');modeLabel.id='initialGenerationModeLabel';modeLabel.textContent=say('最初の3Dプレビューの生成方式','Initial 3D preview mode');const modeSelect=document.createElement('select');modeSelect.id='initialGenerationMode';modeSelect.setAttribute('aria-label',modeLabel.textContent);for(const [value,label] of [['hd',say('通常のHD Model（高精細）','HD Model (high detail)')],['smart-mesh',say('Smart Mesh P2.0','Smart Mesh P2.0')]]){const option=document.createElement('option');option.value=value;option.textContent=label;modeSelect.append(option);}modeLabel.append(modeSelect);actions.prepend(modeLabel);modeSelect.onchange=async()=>{const {project,files}=hooks.get(),next=structuredClone(project);next.dsgarage={...next.dsgarage,generationMode:modeSelect.value};await hooks.commit(next,new Map(files));};");
+  await replaceExact('session-ui.mjs',
+    "$('#journeyPrompt').value=sessionPrompt(r,state.appRoot,location.origin,language());",
+    "$('#journeyPrompt').value=sessionPrompt(r,state.appRoot,location.origin,language(),hooks.get().project);");
+  await replaceExact('session-ui.mjs',
+    "const p=hooks.get().project,c=nextCheckpoint(p),r=state?.request?.projectId===p.id?state.request:null;",
+    "const p=hooks.get().project,c=nextCheckpoint(p),r=state?.request?.projectId===p.id?state.request:null;modeLabel.hidden=c.kind!=='candidates';modeSelect.value=p.dsgarage?.generationMode==='smart-mesh'?'smart-mesh':'hd';modeSelect.disabled=locked;");
+  await replaceExact('session-ui.mjs',
+    "sessionPrompt(promptRequest.request,promptRequest.appRoot,location.origin,language())",
+    "sessionPrompt(promptRequest.request,promptRequest.appRoot,location.origin,language(),hooks.get().project)");
+  await replaceExact('app.mjs',
+    " get:()=>({project,files,busy,dirty}),task,toast,setStage,",
+    " get:()=>({project,files,busy,dirty}),task,toast,setStage,commit:async(p,f)=>{project=p;files=f;markDirty();refreshPanels();},");
+  await replaceExact('production-details.mjs',
+    "  const generate=button(say('生成をエージェントに依頼'",
+    "  const modeLabel=node('label',say('最初の3Dプレビューの生成方式','Initial 3D preview mode'));const modeSelect=node('select','',modeLabel);for(const [value,label] of [['hd',say('通常のHD Model（高精細）','HD Model (high detail)')],['smart-mesh',say('Smart Mesh P2.0','Smart Mesh P2.0')]]){const option=node('option',label,modeSelect);option.value=value;}modeSelect.value=p.dsgarage?.generationMode==='smart-mesh'?'smart-mesh':'hd';modeSelect.onchange=()=>edit(project=>{project.dsgarage={...project.dsgarage,generationMode:modeSelect.value};});\n  const generate=button(say('生成をエージェントに依頼'");
   const skillFile = path.join(directory, 'skills/tripo-agent-workflow/SKILL.md');
   const skill = await fs.readFile(skillFile, 'utf8');
   const lowpoly = '**Smart Mesh P2.0、四角面、25,000、生成数4**';
