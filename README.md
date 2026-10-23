@@ -19,7 +19,7 @@
 </p>
 
 <p align="center">
-  <img alt="version" src="https://img.shields.io/badge/version-1.0.5-22d3ee">
+  <img alt="version" src="https://img.shields.io/badge/version-1.1.0-22d3ee">
   <img alt="Node.js" src="https://img.shields.io/badge/Node.js-22%2B-5fa04e">
   <img alt="output" src="https://img.shields.io/badge/output-VRM%201.0-a78bfa">
   <img alt="license" src="https://img.shields.io/badge/license-source--available-64748b">
@@ -127,7 +127,7 @@ Accounts, terms and fees for external services are your own. The agent checks wh
 
 ## Getting started
 
-1. Download **`charakuru-1.0.5-….zip`** from [Releases](https://github.com/nanocle/Charakuru/releases) and extract it to any folder you can write to.<br><sub>GitHub's automatic "Source code" archive contains only these documents, not the kit.</sub>
+1. Download **`charakuru-1.1.0-….zip`** from [Releases](https://github.com/nanocle/Charakuru/releases) and extract it to any folder you can write to.<br><sub>GitHub's automatic "Source code" archive contains only these documents, not the kit.</sub>
 2. Open the extracted folder in Codex and ask:
 
    ```text
@@ -173,7 +173,7 @@ New agent requests use the `begin` command to avoid Codex on Windows mistaking t
 ## Current limitations
 
 - Copying a request does not start the agent. Paste it into the chat and send it, and keep the app open while it works.
-- New characters have a neutral face with a fixed gaze. Expressions and eye movement are not included.
+- New characters start with a neutral face and a fixed gaze. Use the optional Expressions tab to create or import expressions; gaze animation is not included.
 - Motion review automatically shows the checked VRM, even before model information is registered. Walking and physics start enabled. You decide whether the appearance is satisfactory.
 - **Export VRM** opens the model information form. Confirm the name, authors and usage terms, then save the information and download in one step. The model, materials and springs match motion review; the information is saved with the project for future exports. No agent request is needed.
 - The UI supports English, Japanese, Korean and Simplified Chinese. Standard production requests and reports follow the selected language, even when bundled references are in another language.
@@ -204,3 +204,9 @@ Please report problems and ideas through [Issues](https://github.com/nanocle/Cha
 ---
 
 <p align="center"><sub>Made by Nano (ナノ) · sponsored by Tripo</sub></p>
+
+## Expression authoring
+
+The **Expressions** tab follows Rigging. Its top button copies an agent request. Import VRM 0.x/1.0, GLB, or reopen a character kit; select expressions, combine their strengths, and adjust minimum/maximum values. Controls are disabled until expressions exist. The source model, selection and adjustments are saved in the kit. Custom names are retained. These preview settings do not rewrite the source VRM.
+
+Codex uses bundled knowledge and tools to fit a skin-only eye mask, transfer upper/lower lip motions separately, and create independent brow poses. The agent chooses correspondences by looking at the model, then refines attractive expressions with visual comparison and Blender editing. The library provides 8 eye, 10 mouth and 5 brow poses. Fixed multi-view captures, intermediate strengths and overlays support finishing; successful transfer or saving does not establish visual quality. Original geometry, UVs, materials and existing expressions are retained. Results return as optional Blend/GLB and comparison data to the same project; existing VRM exports are unchanged. See [the guide](docs/expression-authoring.ja.md). Requires Blender 5.2+ and the VRM Add-on for MToon preview. Computer Use can be used for local finishing. The expression assets were created by the kit creator and follow the same restrictions on extraction and redistribution as the other bundled assets.

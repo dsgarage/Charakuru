@@ -17,3 +17,9 @@ The distribution ZIP retains the original notices for separately licensed compon
 | Orbitron | [Orbitron-OFL.txt](public/fonts/Orbitron-OFL.txt) |
 
 Project-supplied assets and logos: see [LICENSE](LICENSE). 制作素材・ロゴ等の利用条件は LICENSE を参照してください。项目提供的素材和标志请遵循 LICENSE。프로젝트 소재와 로고는 LICENSE를 확인하세요.
+
+## Kit-supplied expression assets / キット同梱の表情素材
+
+The expression masks and pose data in `assets/expression-authoring/skin-blink-mask.json` and `feature-poses.json` were created and supplied by the kit creator. They are bundled kit assets subject to the same terms in [LICENSE](LICENSE) as the other project-supplied assets. Extracting these assets for use outside the kit or redistributing them separately is prohibited. No test models, their textures, or model-specific fitted results are included.
+
+表情マスクとポーズデータは、キット制作者本人が制作・提供した同梱素材です。他の制作素材と同じく[LICENSE](LICENSE)の条件が適用され、素材単体の持ち出し・再配布は禁止です。検証用モデル、そのテクスチャ、モデル専用のフィット結果は含みません。

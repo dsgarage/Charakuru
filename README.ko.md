@@ -7,7 +7,7 @@
 <p align="center"><a href="README.md">English</a> ·
   <a href="README.zh-CN.md">简体中文</a> · <a href="README.ja.md">日本語</a> · <a href="docs/tutorial.ko.md"><b>튜토리얼</b></a> · <a href="https://github.com/nanocle/Charakuru/releases">다운로드 (Releases)</a> · <a href="docs/license.ko.md">이용 조건</a> · <a href="https://discord.gg/tripoai"><b>Discord</b></a></p>
 
-<p align="center"><img alt="version" src="https://img.shields.io/badge/version-1.0.5-22d3ee"> <img alt="Node.js" src="https://img.shields.io/badge/Node.js-22%2B-5fa04e"> <img alt="output" src="https://img.shields.io/badge/output-VRM%201.0-a78bfa"> <img alt="license" src="https://img.shields.io/badge/license-source--available-64748b"></p>
+<p align="center"><img alt="version" src="https://img.shields.io/badge/version-1.1.0-22d3ee"> <img alt="Node.js" src="https://img.shields.io/badge/Node.js-22%2B-5fa04e"> <img alt="output" src="https://img.shields.io/badge/output-VRM%201.0-a78bfa"> <img alt="license" src="https://img.shields.io/badge/license-source--available-64748b"></p>
 
 ## 💬 Discord 커뮤니티에 참여하세요!
 
@@ -75,7 +75,7 @@ Tripo의 Smart Mesh를 활용하는 캐릭터 모델링 지원 키트입니다. 
 
 ## 시작하기
 
-1. [Releases](https://github.com/nanocle/Charakuru/releases)에서 전용 `charakuru-1.0.5-….zip`을 다운로드하여 쓰기 가능한 폴더에 풉니다. GitHub의 자동 생성 ‘Source code’ ZIP과 구분하세요.
+1. [Releases](https://github.com/nanocle/Charakuru/releases)에서 전용 `charakuru-1.1.0-….zip`을 다운로드하여 쓰기 가능한 폴더에 풉니다. GitHub의 자동 생성 ‘Source code’ ZIP과 구분하세요.
 2. Codex에서 폴더를 열고 다음처럼 요청합니다.
 
    ```text

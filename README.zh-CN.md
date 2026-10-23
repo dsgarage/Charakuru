@@ -6,7 +6,7 @@
 
 <p align="center"><a href="README.md">English</a> · <a href="README.ja.md">日本語</a> · <a href="README.ko.md">한국어</a> · <a href="docs/tutorial.zh-CN.md"><b>教程</b></a> · <a href="https://github.com/nanocle/Charakuru/releases">下载（Releases）</a> · <a href="docs/license.zh-CN.md">使用条款</a> · <a href="https://discord.gg/tripoai">Discord</a></p>
 
-<p align="center"><img alt="版本" src="https://img.shields.io/badge/version-1.0.5-22d3ee"> <img alt="Node.js" src="https://img.shields.io/badge/Node.js-22%2B-5fa04e"> <img alt="输出" src="https://img.shields.io/badge/output-VRM%201.0-a78bfa"> <img alt="许可" src="https://img.shields.io/badge/license-source--available-64748b"></p>
+<p align="center"><img alt="版本" src="https://img.shields.io/badge/version-1.1.0-22d3ee"> <img alt="Node.js" src="https://img.shields.io/badge/Node.js-22%2B-5fa04e"> <img alt="输出" src="https://img.shields.io/badge/output-VRM%201.0-a78bfa"> <img alt="许可" src="https://img.shields.io/badge/license-source--available-64748b"></p>
 
 ## 加入 Discord 社区
 
@@ -62,7 +62,7 @@ Tripo 官方 Discord 已设立 **Charakuru 专属分类**。欢迎提问、反�
 
 ## 开始制作
 
-1. 从 [Releases](https://github.com/nanocle/Charakuru/releases) 下载专用 **`charakuru-1.0.5-….zip`**，解压到可写文件夹。GitHub 自动生成的 Source code ZIP 不包含可运行套件。
+1. 从 [Releases](https://github.com/nanocle/Charakuru/releases) 下载专用 **`charakuru-1.1.0-….zip`**，解压到可写文件夹。GitHub 自动生成的 Source code ZIP 不包含可运行套件。
 2. 在 Codex 中打开解压文件夹并发送：
 
    ```text

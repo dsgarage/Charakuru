@@ -49,7 +49,7 @@
 
 **👤 あなたの操作**
 
-1. [Releases](https://github.com/nanocle/Charakuru/releases) から `charakuru-1.0.5-….zip` をダウンロードし、書き込みできるフォルダに展開します。「Source code」のZIPではありません。
+1. [Releases](https://github.com/nanocle/Charakuru/releases) から `charakuru-1.1.0-….zip` をダウンロードし、書き込みできるフォルダに展開します。「Source code」のZIPではありません。
 2. Codex で展開したフォルダを開き、次のように頼みます。
    ```text
    ルートAGENTS.mdを読んで、このキットでキャラクター制作を始めたい

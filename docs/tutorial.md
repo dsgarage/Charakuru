@@ -49,7 +49,7 @@ Two more things make the process smoother:
 
 **👤 What you do**
 
-1. Download `charakuru-1.0.5-….zip` from [Releases](https://github.com/nanocle/Charakuru/releases) and extract it to a folder you can write to. Not the "Source code" ZIP.
+1. Download `charakuru-1.1.0-….zip` from [Releases](https://github.com/nanocle/Charakuru/releases) and extract it to a folder you can write to. Not the "Source code" ZIP.
 2. Open the extracted folder in Codex and ask:
    ```text
    Read the root AGENTS.md and help me start creating a character with this kit.
